@@ -146,7 +146,7 @@ let parse_let_stmt lex =
     | invalid_token :: _ -> Error (Printf.sprintf "Invalid token %s, expect identifier" (Tok.show invalid_token)), lex
     | [] -> Error "Unknown syntax error", lex
   )
-  | None, lex, _ -> Error "Unknown Syntax error", lex
+  | None, lex, _ -> Error "Reached Eof while looking for `;'", lex
 
 (* return <expr>; *)
 let parse_return_stmt lex =
